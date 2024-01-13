@@ -1,0 +1,24 @@
+.header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding: 22px 40px;
+    width: 100%;
+    transition: .25s;
+    background-color: var(--background-secondary);
+    border-bottom: 2px solid var(--orange-primary);
+    z-index: 100;
+    .header_container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1400px;
+        .header_nav{
+            display: flex;
+            align-items: center;
+            column-gap: 12px;
+            flex-wrap: nowrap;
+        }
+    }
+}

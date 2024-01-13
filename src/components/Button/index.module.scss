@@ -1,0 +1,26 @@
+.button {
+    height: auto;
+    background-color: var(--background-primary);
+    border: none;
+    padding: 12px 12px;
+    border-radius: 100%;
+
+    svg {
+        transition: .25s;
+        width: 26px;
+        height: 26px;
+        fill: var(--text-color);
+    }
+}
+.active{
+    svg {
+        fill: var(--orange-primary);
+    }
+}
+.button:hover {
+    cursor: pointer;
+
+    svg {
+        fill: var(--orange-secondary);
+    }
+}

@@ -1,0 +1,21 @@
+.basket {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    padding: 40px 40px;
+    width: 100%;
+    .basket_title {
+        text-align: left;
+        font-size: 36px;
+        color: var(--text-color);
+    }
+
+    .basket_container {
+        display: grid;
+        width: 100%;
+        max-width: 1400px;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
+    }
+}

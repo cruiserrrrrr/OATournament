@@ -59,7 +59,9 @@ const Product = (props: IProduct) => {
     return (
         <div className={`${styles.product} ${styles[type]}`}>
             <div className={styles.product_container}>
-                <img className={styles.product_image} src={picture} alt="Фото товара" />
+                <div className={styles.product_image__wrapper}>
+                    <img className={styles.product_image} src={picture} alt="Фото товара" />
+                </div>
                 <div className={styles.product_info}>
                     <p className={styles.product_name}>{name}</p>
                     <p className={styles.product_price}> Цена: <span>{price}₽</span></p>

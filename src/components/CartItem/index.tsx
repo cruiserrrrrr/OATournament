@@ -27,7 +27,10 @@ const CartItem = (props: IProduct) => {
     return (
         <div className={styles.cart_item}>
             <div className={styles.cart_item__container}>
-                <img className={styles.cart_item__image} src={picture} alt="" />
+                <div className={styles.item_image__wrapper}>
+                    <img className={styles.cart_item__image} src={picture} alt="" />
+                </div>
+                {/* <img className={styles.cart_item__image} src={picture} alt="" /> */}
                 <div className={styles.cart_item__content}>
                     <p className={styles.item_name}>{name}</p>
                     <p className={styles.item_price}>Цена: <span>{price}₽</span></p>

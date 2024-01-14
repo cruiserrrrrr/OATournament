@@ -4,7 +4,6 @@
     --background-primary: #101010;
     --background-secondary: #202020;
     --text-color: #F9F9F9;
-    --minor-primary: #FFFFFF;
 
     --orange-primary: #F37A3C;
     --orange-secondary: #E85B21;
@@ -24,6 +23,16 @@
 }
 body{
     background-color: var(--background-primary);
+}
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+    background-color: var(--background-secondary);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--orange-primary);
+    border-radius: 6px;
 }
 
 .app {

@@ -10,3 +10,14 @@
 .link:hover{
     border-bottom: 2px solid var(--orange-primary);
 }
+
+@media (max-width: 768px) {
+    .link{
+        font-size: 14px;
+    }
+}
+@media (max-width: 400px) {
+    .link{
+        font-size: 12px;
+    }
+}

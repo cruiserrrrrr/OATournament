@@ -3,6 +3,7 @@
     padding: 40px 40px;
     display: flex;
     justify-content: center;
+    
     .favorites_wrapper {
         width: 100%;
         max-width: 1400px;
@@ -10,6 +11,7 @@
         flex-direction: column;
         row-gap: 40px;
         align-items: center;
+        
         .favorites_title {
             margin-right: auto;
             font-size: 36px;
@@ -21,6 +23,14 @@
             display: flex;
             flex-direction: column;
             row-gap: 20px;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .favorites{
+        padding: 10px 10px;
+        .favorites_wrapper{
+            row-gap: 10px;
         }
     }
 }

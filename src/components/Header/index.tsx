@@ -1,10 +1,9 @@
 import Link from "../Link";
 import styles from "./index.module.scss";
-
 const navList = [
     {
         path: '/',
-        text: 'Ассортимент'
+        text: 'Магазин'
     },
     {
         path: '/favorites',

@@ -13,7 +13,8 @@ export interface IProduct {
     name: string,
     price: number,
     quantity: number,
-    type?: 'basket' | 'market' | 'favorite'
+    type?: 'basket' | 'market' | 'favorite',
+    stock: number
 }
 
 const Product = (props: IProduct) => {
@@ -27,8 +28,8 @@ const Product = (props: IProduct) => {
     } = props;
 
     const dispatch = useDispatch();
-    const basket = useSelector((state: RootState) => state.basket);
-    const favorites = useSelector((state: RootState) => state.favorites);
+    const basket: Array<IProduct> = useSelector((state: RootState) => state.basket);
+    const favorites: Array<IProduct> = useSelector((state: RootState) => state.favorites);
 
     const isBasket = basket.find(elem => elem.name === name);
     const isFavorite = favorites.find(elem => elem.name === name);
@@ -38,7 +39,7 @@ const Product = (props: IProduct) => {
             dispatch(removeFromBasket(name));
             persistor.persist();
         } else {
-            dispatch(addToBasket({ picture, name, price, quantity }));
+            dispatch(addToBasket({ picture, name, price, quantity, stock: 1 }));
             persistor.persist();
         };
 
@@ -48,39 +49,41 @@ const Product = (props: IProduct) => {
             dispatch(removeFromFavorite(name));
             persistor.persist();
         } else {
-            dispatch(addToFavorite({ picture, name, price, quantity }));
+            dispatch(addToFavorite({ picture, name, price, quantity, stock: 1 }));
             persistor.persist();
         };
     };
     const notification = () => {
-        alert("Нет в наличии")
-    }
+        alert("Нет в наличии");
+    };
     return (
         <div className={`${styles.product} ${styles[type]}`}>
-            <div className={styles.product_actions}>
-                <Button
-                    onClick={favoritesAction}
-                    icon={<FavoriteIcon />}
-                    isActive={!!isFavorite}
-                />
-                <Button
-                    onClick={quantity ? basketAction : notification}
-                    icon={<BasketIcon />}
-                    isActive={!!isBasket}
-                />
-            </div>
             <div className={styles.product_container}>
-                <img className={styles.product_image} src={picture} alt="img" />
+                <img className={styles.product_image} src={picture} alt="Фото товара" />
                 <div className={styles.product_info}>
                     <p className={styles.product_name}>{name}</p>
-                    <p className={styles.product_price}> Price: <span>{price}$</span></p>
+                    <p className={styles.product_price}> Цена: <span>{price}₽</span></p>
                     {
-                        !!quantity ?
+                        quantity ?
                             <p className={styles.product_quantity}>В наличии: <span>{quantity}</span></p>
                             :
                             <p className={styles.product_quantity}>Нет в наличии</p>
                     }
                 </div>
+            </div>
+            <div className={styles.product_actions}>
+                <Button
+                    onClick={favoritesAction}
+                    icon={<FavoriteIcon />}
+                    isActive={!!isFavorite}
+                    content="icon"
+                />
+                <Button
+                    onClick={quantity ? basketAction : notification}
+                    icon={<BasketIcon />}
+                    isActive={!!isBasket}
+                    content="icon"
+                />
             </div>
         </div>
     )
